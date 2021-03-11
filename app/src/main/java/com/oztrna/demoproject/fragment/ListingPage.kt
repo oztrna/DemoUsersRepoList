@@ -153,7 +153,13 @@ class ListingPage: MyFragment(), RepoListAdapter.RowClickListener {
                 }
             }
         } catch (e: Exception) {
-
+            activity?.let {
+                it.runOnUiThread {
+                    repo_list?.visibility = View.GONE
+                    loading_bar?.visibility = View.GONE
+                    listing_empty_view?.visibility = View.VISIBLE
+                }
+            }
         }
     }
 

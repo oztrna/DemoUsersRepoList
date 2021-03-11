@@ -14,10 +14,9 @@ import com.oztrna.demoproject.helpers.Manager
 import com.oztrna.demoproject.listeners.OnFragmentInteractionListener
 import com.oztrna.demoproject.models.GitModel
 import com.oztrna.demoproject.models.OwnerModel
+import kotlinx.android.synthetic.main.empty_view.*
 import kotlinx.android.synthetic.main.fragment_favorite.*
-import kotlinx.android.synthetic.main.fragment_listing.*
 import kotlinx.android.synthetic.main.toolbar.*
-import java.security.acl.Owner
 
 class FavoritePage: MyFragment(), RepoListAdapter.RowClickListener {
 
@@ -37,6 +36,11 @@ class FavoritePage: MyFragment(), RepoListAdapter.RowClickListener {
             var data = SugarRecord.listAll(GitModel::class.java)
 
             toolbar_title?.text = String.format("Favorites(%d)", data.size)
+
+            if (data.size == 0) {
+                favorite_empty_view?.visibility = View.VISIBLE
+                empty_view_text?.text = "Your favorite list is empty\nYou can add from toolbar in repo detail page"
+            }
 
             val adapter = RepoListAdapter(ArrayList(data), true)
             adapter.rowClickListener = this

@@ -21,6 +21,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:background="@null"
+			android:paddingTop="8dp"
+			android:paddingBottom="8dp"
+			android:paddingEnd="8dp"
 			android:src="@drawable/ic_back" />
 
 		<androidx.appcompat.widget.AppCompatTextView
@@ -40,6 +43,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:background="@null"
+			android:padding="8dp"
 			android:src="@drawable/ic_heart_off" />
 
 	</LinearLayout>

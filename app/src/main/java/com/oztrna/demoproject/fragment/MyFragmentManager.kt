@@ -28,10 +28,11 @@ class MyFragmentManager(private val fragmentManager: FragmentManager) {
 
         currentFragment?.arguments = arguments
 
-        if (!addToBackStack)
+        if (addToBackStack) {
+            myFragmentStack.add(currentFragment)
+        } else {
             baseFragment = currentFragment
-
-        myFragmentStack.add(currentFragment)
+        }
 
         val fragmentTransaction = fragmentManager.beginTransaction()
         if (addToBackStack) {
